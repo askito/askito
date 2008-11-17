@@ -26,13 +26,13 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   
-  config.gem 'fastercsv'
-  config.gem 'prawn'
-  config.gem 'haml'
-  config.gem 'random_data'
-  config.gem 'populator'
-  config.gem 'faker'
-  config.gem 'RedCloth'
+  config.gem 'fastercsv'        # export data in CSV-format
+  config.gem 'prawn'            # export as pdf
+  config.gem 'haml'             # template engine
+  config.gem 'random_data'      # randomizer
+  config.gem 'populator'        # generate fake data
+  config.gem 'faker'            # generate fake data
+  config.gem 'RedCloth'         # textile formatting
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
