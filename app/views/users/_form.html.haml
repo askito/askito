@@ -1,0 +1,15 @@
+- @user.password = @user.password_confirmation = nil
+- airbudd_form_for @user, :html => {:multipart => true} do |f|
+  %fieldset
+    = f.text_field :login, :required => true
+    = f.text_field :email, :required => true
+  %fieldset
+    - unless @user.new_record?
+      %p.hint Leave this blank if you don't want to change the password.
+    = f.password_field :password
+    = f.password_field :password_confirmation, :label => "Confirm Password"
+  
+  
+  - f.buttons do |b|
+    = b.save :label => @user.new_record? ? "Sign up" : "Save"
+    = b.cancel :url => users_path

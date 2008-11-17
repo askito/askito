@@ -1,0 +1,5 @@
+%tr{:id => "#{dom_id(user)}", :class => "user #{cycle('odd','even')}"}
+  %td
+    %h3= link_to h(user.login), edit_user_path(user)
+  %td
+    = mail_to user.email, h(user.email)
