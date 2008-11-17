@@ -1,5 +1,7 @@
 .DS_STORE
 log/*.log
 temp/**/*
+db/development.sqlite3
+db/test.sqlite3
 vendor/gems
 vendor/rails
