@@ -1,3 +1,5 @@
 .DS_STORE
 log/*.log
 temp/**/*
+vendor/gems
+vendor/rails

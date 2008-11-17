@@ -7,13 +7,13 @@ role :db,  domain, :primary => true
 set :application, "askito"
 default_run_options[:pty] = true
 
-set :runner, user
-set :ssh_options, { :forward_agent => true, :paranoid => false }
-
 set :repository, "git://github.com/askito/askito.git"
 set :scm, "git"
 set :user, "deploy"
 set :branch, "master"
+
+set :runner, user
+set :ssh_options, { :forward_agent => true, :paranoid => false }
 
 set :deploy_to, "/home/#{user}/public_html/#{application}"
 set :rails_env, "production"
@@ -36,6 +36,8 @@ namespace :deploy do
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/vendor/rails #{release_path}/vendor/rails"
+    run "ln -nfs #{shared_path}/vendor/gems #{release_path}/vendor/gems"
   end
   
   desc "Run this after every successful deployment" 
@@ -44,4 +46,5 @@ namespace :deploy do
   end
 end
 
+after 'deploy:update_code', 'deploy:symlink_shared'
 
