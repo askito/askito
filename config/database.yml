@@ -14,6 +14,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  timeout: 5000
+  adapter: mysql
+  database: askito
+  host: localhost
+  username: root
+  password: 2MuEEF9]~K
+  encoding: utf8
