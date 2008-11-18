@@ -1,4 +1,4 @@
-- airbudd_form_for "session", :url => session_path do |f|
+- form_tag sessions_path do
   %p
     %label Login
     = text_field_tag 'login', @login
@@ -12,5 +12,4 @@
   
   .clear
     %p
-      - f.buttons do |b|
-        = b.save :label => "Log in"
+      = submit_tag "Log in"
