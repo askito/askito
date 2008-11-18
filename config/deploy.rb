@@ -37,6 +37,7 @@ namespace :deploy do
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/vendor/rails #{release_path}/vendor"
+    run "ln -nfs #{release_path}/vendor/plugins/restful_authentication/lib #{release_path}/lib"
     run "ln -nfs #{shared_path}/vendor/gems #{release_path}/vendor"
   end
   
