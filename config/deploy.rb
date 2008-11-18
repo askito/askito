@@ -16,7 +16,7 @@ set :runner, user
 set :ssh_options, { :forward_agent => true, :paranoid => false }
 
 set :deploy_to, "/home/#{user}/public_html/#{application}"
-set :rails_env, "production"
+set :rails_env, "development"
 
 namespace :deploy do
   task :start do
@@ -37,7 +37,7 @@ namespace :deploy do
   task :symlink_shared do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/vendor/rails #{release_path}/vendor"
-    run "ln -nfs #{release_path}/vendor/plugins/restful_authentication/lib #{release_path}/lib/"
+    # run "ln -nfs #{release_path}/vendor/plugins/restful_authentication/lib #{release_path}/lib/"
     run "ln -nfs #{shared_path}/vendor/gems #{release_path}/vendor"
   end
   
