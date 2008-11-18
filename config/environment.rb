@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
   config.gem 'random_data'      # randomizer
   config.gem 'populator'        # generate fake data
   config.gem 'faker'            # generate fake data
-  config.gem 'RedCloth'         # textile formatting
+  # config.gem 'RedCloth'         # textile formatting
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

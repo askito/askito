@@ -1,0 +1,16 @@
+%li{:id => dom_id(content), :class => "#{dom_class(content)} content #{template(content)}"}
+  - unless content.text.blank?
+    .text
+      = content.text
+      
+  = eval("#{content.template}(content)")
+  
+  
+  
+  - unless @respondent || @assessor
+    %div{:class => 'actions', :style => 'display:none;'}
+      - unless content.template == 'pagebreak'
+        = link_to_remote icon(:edit), :url => edit_questionnaire_content_path(@questionnaire, content), :method => :get
+        = link_to_remote icon(:copy), :url => copy_questionnaire_content_path(@questionnaire, content), :method => :get
+      = link_to_remote icon(:delete), :url => questionnaire_content_path(@questionnaire, content), :method => :delete, :confirm => 'Are you sure?'
+    = toggle_actions_script

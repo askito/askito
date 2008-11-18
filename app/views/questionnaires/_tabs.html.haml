@@ -1,0 +1,3 @@
+%ul.tabs.clear
+  - questionnaire_tab_items.each do |item|
+    %li{:class => "tab#{current_page?(item[1]) ? ' current' : nil}"}= link_to h(item[0]), item[1]

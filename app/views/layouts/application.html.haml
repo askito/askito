@@ -4,27 +4,29 @@
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}/
     %title= "#{ yield(:title) } - Askito"
     
-    = javascript_include_tag :defaults, "textile-editor", :cache => true
-    = stylesheet_link_tag "application", "forms", :cache => true
+    = javascript_include_tag :defaults, "lowpro", "textile-editor", :cache => true
+    = stylesheet_link_tag "reset", "grid", "application", "forms", "textile-editor", :cache => true
     = yield(:header)
 
   %body{ :id => "#{controller.controller_name}_#{controller.action_name}"}
-    #wrapper
-      #header
-        %h1#logo= "Askito"
-      #nav.clear
-        %ul= navigation
+    #header
+      %h1#logo= "Askito"
       #site_functions
         = render :partial => 'users/user_bar'
-      #page
-        #bgtop
-        #bgbottom.clear
-          #main
-            #flashes
-              - unless flash.empty?
-                = print_flash
-              = reset_flash_with_delay
-            = yield
-          #sidebar
-            = yield :sidebar
-      #footer
+      #navigation.clear
+        %ul= navigation
+      
+    #body
+      #main
+        #flashes
+          - unless flash.empty?
+            = print_flash
+          = reset_flash_with_delay
+        #actions
+          %ul
+            = yield(:actions)
+        #content
+          = yield
+        #footer &nbsp;
+      #sidebar
+        = yield :sidebar

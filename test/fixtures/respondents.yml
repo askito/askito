@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  questionnaire: 
+  ip_address: MyString
+  started_at: 2008-11-18 04:40:27
+  completed_at: 2008-11-18 04:40:27
+
+two:
+  questionnaire: 
+  ip_address: MyString
+  started_at: 2008-11-18 04:40:27
+  completed_at: 2008-11-18 04:40:27

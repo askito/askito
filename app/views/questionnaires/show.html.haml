@@ -1,0 +1,40 @@
+- content_for :actions do
+  %li= arrange_contents_link
+  %li= link_to_form :copy, duplicate_questionnaire_path(@questionnaire), :method => :post
+  %li= link_to_form :delete, url_for(:action => 'destroy', :id => @questionnaire), :method => :delete, :confirm => 'Are you sure?'
+
+
+= render :partial => 'tabs', :locals => {:current => 0}
+
+- unless @questionnaire.caption.blank?
+  %h2= h @questionnaire.caption
+  %p.hint= h @questionnaire.title
+- else
+  %h2= h @questionnaire.title
+
+
+%ol#contents
+  - unless @questionnaire.contents.empty?
+    = render :partial => 'contents/content', :collection => @questionnaire.contents
+
+= sortable_element 'contents', :url => sort_questionnaire_contents_path(@questionnaire), :method => :put
+
+- content_for :sidebar do
+  - QUESTIONNAIRE_CONTENT_TYPES.each_with_index do |category, i|
+    - unless i == 0
+      .spacer &nbsp;
+    .box
+      %h3.box-heading
+        = h category[0].humanize
+        = toggle_box_body_link
+      %div{:class => 'box-body clear'}
+        .buttons
+          %ul.content-types
+            - category[1].each do |content_type|
+              %li.button= new_content_link(category[0], content_type)
+          
+    
+= javascript_tag "var contentsHash = new Hash();"
+
+
+

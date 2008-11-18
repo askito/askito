@@ -1,0 +1,6 @@
+item1:
+  title:          Questionnaires
+  resource:       questionnaires
+  controllers:    questionnaires
+  access_levels:  "2"
+

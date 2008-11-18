@@ -1,0 +1,20 @@
+- airbudd_form_for @questionnaire do |f|
+  %fieldset
+    = f.text_field :title, :class => 'big', :required => true
+    = f.text_field :caption, :hint => 'Use an alternative title for display.', :class => 'l'
+    - if @templates.any?
+      = f.select :template_id, @templates.collect {|t| [t.title, t.id.to_s]}, :include_blank => true
+    
+    %p= link_to_function "Add a description", "$('description').show();"
+    %div{:id => "description", :style => "#{@questionnaire.description.blank? ? 'display:none;' : ''}"}
+      %label{:for => "questionnaire_description"}
+        Description
+        %span.hint (format with Textile)
+        = link_to_function "(hide)", "$('description').hide();"
+      ~ textile_editor "questionnaire", 'description', :class => "l"
+      = textile_editor_initialize
+  .clear
+    %p
+      - f.buttons do |b|
+        = b.save
+        = b.cancel :url => questionnaires_path

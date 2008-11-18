@@ -1,0 +1,2 @@
+class DisplayElement < Content
+end

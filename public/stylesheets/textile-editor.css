@@ -12,8 +12,10 @@ div.textile-toolbar span.ed_sep {
 div.textile-toolbar button {
 	margin: 0;
 	background-color: #f0f0ee;
+	background-color: transparent;
 	background-repeat: no-repeat;
 	border: 1px solid #f0f0ee;
+	border: 1px solid transparent;
 	padding: 2px 0;
 }
 
@@ -39,6 +41,7 @@ div.textile-toolbar button.selected {
 div.textile-toolbar button.unselected {
 	border: 1px solid #f0f0ee;
 	background-color: #f0f0ee;
+	background-color: transparent;
 }
 
 div.textile-toolbar button.publish {
@@ -48,6 +51,10 @@ div.textile-toolbar button.publish {
 
 div.textile-toolbar {
 	background-color: #f0f0ee;
+	background-color: transparent;
+	background-color: #FFF4C2;
+	background-color: #E8E4B1;
+/*	background-color: #E2E6BA;*/
 	padding: 3px;
 	margin-bottom: 4px;
 }

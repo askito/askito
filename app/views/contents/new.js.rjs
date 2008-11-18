@@ -1,0 +1,6 @@
+page.select('.new-content-form').each do |form|
+  page.remove form
+end
+
+page.insert_html :bottom, 'contents', :partial => "form"
+page[:new_content_form].scroll_to

@@ -1,0 +1,34 @@
+# name: must be unique
+# caption: will be assigned to the new content as default title
+# options: will be assigned to the new content as default options (for questions or profile attributes with choices)
+
+
+
+display_elements:
+  -
+    name:     descriptive_text
+  -
+    name:     pagebreak
+
+questions:
+  - 
+    name:           single_choice
+    answer_model:   Answer
+  -                 
+    name:           multiple_choice
+    answer_model:   Answer
+  -                 
+    name:           open_single_line
+    title:          Open short
+    answer_model:   AnswerText
+  -                 
+    name:           open_multiple_lines
+    title:          Open long
+    answer_model:   AnswerText
+  -                 
+    name:           rating_scale
+    answer_model:   Answer
+  -                 
+    name:           semantic_differential
+    title:          differential
+    answer_model:   Answer

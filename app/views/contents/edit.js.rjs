@@ -1,0 +1,2 @@
+page << "contentsHash.set('#{dom_id(@content)}', $('#{dom_id(@content)}'))"
+page.replace dom_id(@content), :partial => "contents/form"

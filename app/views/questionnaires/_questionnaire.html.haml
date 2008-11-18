@@ -1,0 +1,7 @@
+%tr{:id => dom_id(questionnaire), :class => "questionnaire #{cycle('odd','even')}"}
+  %td
+    %strong= link_to h(questionnaire.title), questionnaire
+  %td
+    - unless questionnaire.caption.blank?
+      %p= h questionnaire.caption
+  %td

@@ -1,0 +1,13 @@
+if @successful
+  unless @content.template == 'pagebreak'
+    page.replace "new_content_form", :partial => "contents/content"
+    page.visual_effect :highlight, dom_id(@content)
+  else
+    page.insert_html :bottom, "contents", :partial => "contents/content"
+  end
+  page.sortable 'contents', :url => sort_questionnaire_contents_path(@questionnaire), :method => :put
+else
+  unless @content.content_type == 'page_break'
+    page.replace "new_content_form", :partial => "contents/#{template}/#{template}_form"
+  end
+end

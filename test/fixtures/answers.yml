@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  respondent: 
+  question: 
+  option: 
+  row_id: 1
+  col_id: 1
+
+two:
+  respondent: 
+  question: 
+  option: 
+  row_id: 1
+  col_id: 1

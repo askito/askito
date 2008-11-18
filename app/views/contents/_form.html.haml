@@ -1,0 +1,20 @@
+%li{ :id => content_form_id, :class => "notice #{controller.action_name}-content-form #{@content.template}", :style => 'display:block;clear:both;'}
+  - airbudd_remote_form_for @content, :url => url_for_content_form do |f|
+    - if @content.errors.any?
+      %p.flash-error= @content.errors.full_messages.to_sentence
+    = f.hidden_field :template
+    - unless @content.template == 'image'
+      = eval("fields_for_#{@content.template}(@content, f)")
+      = textile_editor_initialize
+    - else
+      = render :partial => 'assets/form', :locals => {:assets => @content.assets, :attachable_type => 'DisplayElement'}
+      %p
+        = link_to_function "Add asset", update_page{|page| page.insert_html :bottom, 'assets', :partial => 'assets/form_item', :object => Asset.new, :locals => {:attachable_type => 'DisplayElement'}}
+    %p
+      .clear
+        - f.buttons do |b|
+          = b.save
+          - lbl = 'Cancel'
+          - icon = image_tag('icons/arrow_undo.png')
+          - function = @content.new_record? ? "this.up('li').remove()" : "Element.replace('edit_#{dom_id(@content)}_form', contentsHash.get('#{dom_id(@content)}'));contentsHash.unset('#{dom_id(@content)}')"
+          = link_to_function icon + lbl, function
