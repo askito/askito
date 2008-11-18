@@ -72,4 +72,8 @@ module ApplicationHelper
     "$('#{tab}').show();"
   end
   
+  def textilize(text)
+    text.blank? ? '' : RedCloth.new(text).to_html
+  end
+  
 end
