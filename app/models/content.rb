@@ -8,7 +8,7 @@ class Content < ActiveRecord::Base
   has_many    :answer_dates, :foreign_key => 'question_id'
 
   acts_as_list :order => 'contents.position'
-  # acts_as_textiled :text
+  acts_as_textiled :text
   serialize :settings
 
   named_scope :pagebreaks, lambda{{
