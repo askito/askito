@@ -1,1 +1,8 @@
-= render :partial => 'form'
+- @user.password = @user.password_confirmation = nil
+- airbudd_form_for @user, :html => {:multipart => true} do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  .clear
+    %p
+      - f.buttons do |b|
+        = b.save :label => @user.new_record? ? "Sign up" : "Save"
+        = b.cancel :url => users_path

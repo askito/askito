@@ -7,8 +7,10 @@
 = render :partial => 'tabs', :locals => {:current => 0}
 
 - unless @questionnaire.caption.blank?
-  %h2= h @questionnaire.caption
-  %p.hint= h @questionnaire.title
+  %h2
+    = h @questionnaire.caption
+    %br
+    %small.hint= "[#{h @questionnaire.title}]"
 - else
   %h2= h @questionnaire.title
 

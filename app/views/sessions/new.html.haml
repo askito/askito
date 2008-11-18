@@ -1,0 +1,16 @@
+- airbudd_form_for "session", :url => session_path do |f|
+  %p
+    %label Login
+    = text_field_tag 'login', @login
+  %p
+    %label Password
+    = password_field_tag 'password', nil
+  
+  %p.hint
+    = link_to "Click here", new_user_path
+    if you don't have an Account.
+  
+  .clear
+    %p
+      - f.buttons do |b|
+        = b.save :label => "Log in"

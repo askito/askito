@@ -35,7 +35,7 @@ dt {
 }
 
 h2 {
-  margin: 10px;
+  margin: 20px 0;
   font-size:15px;
   color: #47b4cf;
   font-weight:normal;
@@ -51,6 +51,11 @@ img {
 p {
   margin: 10px 0;
   }
+
+table.index-table {
+	margin: -10px -10px -20px -10px;
+	width: 588px;
+}
 
 table {
   width: 100%;
@@ -128,6 +133,7 @@ tfoot a:hover {
 .tabs {
   list-style: none;
   margin: 0 0 10px 0;
+margin: -10px -10px 10px -10px;
   padding: 0;
   background-color: #9dd5df;
   border-top: 1px solid #fff;
@@ -168,7 +174,7 @@ tfoot a:hover {
 
 
 
-#flash-error {
+.flash-error {
   margin: 0 auto 10px auto;
   background: #df681a;
   padding: 10px;
@@ -179,7 +185,7 @@ tfoot a:hover {
 .feedback { color: #900;}
 
 
-#flash-notice {
+.flash-notice {
   margin: 0 auto 10px auto;
   background: #b1e3a1;
   padding: 10px;
@@ -285,11 +291,6 @@ h3.box-heading a { color: #fff; }
 	}
 
 
-
-#contents > li {
-	
-}
-
 #questionnaires_show #contents > li {
 	position: relative;
 	padding: 10px;
@@ -340,4 +341,6 @@ h3.box-heading a { color: #fff; }
 	border:none;
 	padding: 5px;
 }
+
+
 

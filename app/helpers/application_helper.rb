@@ -28,9 +28,9 @@ module ApplicationHelper
   
   def print_flash
     if !flash[:error].blank?
-      content_tag("div", flash[:error], :class => "flash-error notice")
+      content_tag("div", flash[:error], :class => "flash-error")
     elsif !flash[:notice].blank?
-      content_tag("div", flash[:notice], :class => "flash-notice notice")
+      content_tag("div", flash[:notice], :class => "flash-notice")
     end
   end
   

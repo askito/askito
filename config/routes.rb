@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.connect '/', :controller => 'questionnaires'
-  map.home '/', :controller => 'questionnaires'
+  map.connect '/', :controller => 'questionnaires', :action => 'index'
+  # map.home '/', :controller => 'questionnaires'
   
   map.resources :questionnaires, :member => {:duplicate => :post} do |questionnaire|
     questionnaire.resources :contents, :member => { :copy => :get }, :collection => { :sort => :put }

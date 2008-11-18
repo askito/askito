@@ -1,13 +1,20 @@
 - content_for :actions do
   %li= link_to "New questionnaire", new_questionnaire_path
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Caption
-      %th Respondents
-  = render :partial => @questionnaires
-  %tfoot
-    %tr
-      %td{ :colspan => 3 }
+- if @questionnaires.any?
+  %table.index-table
+    %thead
+      %tr
+        %th Title
+        %th Caption
+        %th Respondents
+    = render :partial => @questionnaires
+    %tfoot
+      %tr
+        %td{ :colspan => 3 }
+- else
+  %p.empty-message
+    Click on the button below to create your first survey
+  .clear
+    %p
+    = link_to_form :new, :url => new_questionnaire_path, :label => 'New questionnaire'
