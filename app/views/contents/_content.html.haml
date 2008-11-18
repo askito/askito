@@ -1,7 +1,7 @@
 %li{:id => dom_id(content), :class => "#{dom_class(content)} content #{template(content)}"}
   - unless content.text.blank?
     .text
-      = content.text
+      = textilize content.text
       
   = eval("#{content.template}(content)")
   
