@@ -20,7 +20,8 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources :users
 
-  map.resource :session
+  # map.resource :session, :controller => 'sessions'
+  map.resources :sessions
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
