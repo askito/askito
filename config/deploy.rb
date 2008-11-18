@@ -16,7 +16,7 @@ set :runner, user
 set :ssh_options, { :forward_agent => true, :paranoid => false }
 
 set :deploy_to, "/home/#{user}/public_html/#{application}"
-set :rails_env, "production"
+set :rails_env, "development"
 
 namespace :deploy do
   task :start do

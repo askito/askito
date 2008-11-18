@@ -1,7 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  skip_before_filter :login_required, :only => [:new, :create]
+  skip_before_filter :login_required
 
   # render new.rhtml
   def new
